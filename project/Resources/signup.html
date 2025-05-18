@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Know Your Rights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0d0d2b;
+            color: white;
+            text-align: center;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Support Section */
+        .support {
+            padding: 100px 20px;
+            background: #1a1a3d;
+        }
+
+        .support h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid gray;
+            padding-bottom: 10px;
+        }
+
+        .faq-item h3 {
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            display: none;
+            font-size: 1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #282c54;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background: #8b00ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            opacity: 0.8;
+        }
+
+        /* Live Chat */
+        .chatbox {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #282c54;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .chatbox input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .chatbox button {
+            background: #8b00ff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            height: 200px;
+            overflow-y: scroll;
+            background: white;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">KNYR</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Support Section -->
+    <section class="support">
+        <h1>Need Help? We're Here for You! 😊</h1>
+
+        <!-- FAQ Section -->
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(0)">❓ How do I sign up?</h3>
+                <p>Click the "Sign Up" button on the homepage and fill in your details.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(1)">❓ What should I do if I forget my password?</h3>
+                <p>Click "Forgot Password" on the login page and follow the instructions.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(2)">❓ How can I contact support?</h3>
+                <p>Use the contact form below or our live chat feature.</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form onsubmit="submitForm(event)">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="form-response"></p>
+        </div>
+
+        <!-- Live Chat -->
+        <div class="chatbox">
+            <h2>Live Chat 💬</h2>
+            <div class="chat-messages" id="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Toggle
+        function toggleFAQ(index) {
+            let answers = document.querySelectorAll('.faq-item p');
+            if (answers[index].style.display === "none") {
+                answers[index].style.display = "block";
+            } else {
+                answers[index].style.display = "none";
+            }
+        }
+
+        // Contact Form Submission
+        function submitForm(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                document.getElementById("form-response").innerText = "✅ Your message has been sent!";
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+            } else {
+                document.getElementById("form-response").innerText = "❌ Please fill out all fields.";
+            }
+        }
+
+        // Live Chat Simulation
+        function sendMessage() {
+            let inputField = document.getElementById("chat-input");
+            let message = inputField.value.trim();
+            if (message) {
+                let chatBox = document.getElementById("chat-messages");
+                let userMessage = `<p><strong>You:</strong> ${message}</p>`;
+                chatBox.innerHTML += userMessage;
+
+                // Simulating bot response
+                setTimeout(() => {
+                    let botMessage = `<p><strong>Support Bot:</strong> We're here to help! 😊</p>`;
+                    chatBox.innerHTML += botMessage;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+
+                inputField.value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>

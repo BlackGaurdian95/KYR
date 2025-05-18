@@ -1,0 +1,110 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body {
+    background-image: url('hello.jpg.jpeg');
+     background-color: black;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    }
+    nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    }
+    .logo {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.8;
+    }
+    .nav-links {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: center;
+    }
+    .nav-links a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    opacity: 1;
+    }
+    .auth-buttons {
+    display: flex;
+    gap: 15px;
+    }
+    .auth-buttons .signup {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    }
+    .auth-buttons .login {
+    background: #5F00FF;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    }
+    .hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .hero h1 {
+    font-size: 58px;
+    font-weight: bold;
+    }
+    .hero p {
+    margin: 15px 0 40px;
+    }
+    .buttons button {
+    padding: 15px 40px;
+    border: none;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    }
+    .buttons .get-started {
+    background-color: #5F00FF;
+    color: #fff;
+    border-radius: 5px;
+    }
+    .buttons .how-it-works {
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    }
+    .section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .content {
+        max-width: 800px;
+        width: 90%;
+    }

@@ -1,0 +1,70 @@
+USER TABLE :
+-- The table is used to store the data of the users who have registered on the website.
+CREATE TABLE users (
+	id INT(11) NOT NULL AUTO_INCREMENT, 
+    username VARCHAR(30) NOT NULL,
+    pwd VARCHAR(30) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    PRIMARY KEY (id)
+    
+);
+
+
+CONTACT US TABLE:
+-- The table is used to store the data of the users who have contacted us through the website.
+CREATE TABLE contact_us (
+	id INT(11) NOT NULL AUTO_INCREMENT, 
+    username VARCHAR(30) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    message Text NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    PRIMARY KEY (id)
+);
+
+
+SAVED LAWS TABLE:
+-- The table is used to store the data of the laws that have been saved by the users.
+CREATE TABLE saved_laws (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  law_title VARCHAR(255) NOT NULL,
+  law_link VARCHAR(255) NOT NULL,
+  saved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+SEARCH TOPICS TABLE:
+-- The table is used to store the data of the search topics that can be searched in the search bar
+CREATE TABLE search_topics (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  snippet TEXT NOT NULL,
+  keywords TEXT NOT NULL,
+  link VARCHAR(255) NOT NULL
+);
+
+
+SUBSCRIBERS TABLE:
+-- The table is used to store the data of the users who have subscribed to our newsletter.
+CREATE TABLE subscribers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+ATTORNY TABLE:
+-- The table is used to store the data of the attorneys who have been added to the website.
+CREATE TABLE attorneys (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  specialty VARCHAR(100),
+  experience_years INT,
+  city VARCHAR(100),
+  fee INT,
+  phone VARCHAR(20),
+  email VARCHAR(255),
+  profile_link VARCHAR(255)
+);
+

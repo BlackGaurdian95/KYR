@@ -1,0 +1,96 @@
+/* About Section - Fullscreen with Background */
+.about-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Dark Overlay for Better Readability */
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darkens background */
+}
+
+/* Content Container */
+.about-container {
+    position: relative;
+    max-width: 1100px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings */
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Paragraphs */
+.about-content p {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Boxes for Mission, Vision, Team */
+.about-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.about-box {
+    flex: 1;
+    background: #6200ea;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.about-box:hover {
+    background: #4700b3;
+    transform: scale(1.05);
+}
+
+/* Learn More Button */
+.learn-more {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background: #6200ea;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.learn-more:hover {
+    background: #4700b3;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .about-boxes {
+        flex-direction: column;
+    }
+
+    .about-container {
+        width: 100%;
+    }
+}

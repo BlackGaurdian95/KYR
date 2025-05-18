@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Rights</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="blog">
+        <h2>Latest Blog Posts</h2>
+        <div class="blog-container" id="blogContainer">
+            <!-- Blog posts will be inserted dynamically here -->
+        </div>
+    </section>
+
+    <script>
+        // Example blog data (can be replaced with API fetch)
+        const blogPosts = [
+            {
+                title: "Understanding Your Legal Rights",
+                description: "Learn about your fundamental rights and how they apply to you.",
+                link: "post1.html"
+            },
+            {
+                title: "How to Handle Legal Issues",
+                description: "Tips and guidance on navigating common legal challenges.",
+                link: "post2.html"
+            },
+            {
+                title: "Recent Changes in the Law",
+                description: "Stay updated on the latest legal updates and what they mean for you.",
+                link: "post3.html"
+            }
+        ];
+
+        // Function to load blog posts dynamically
+        function loadBlogPosts() {
+            const container = document.getElementById('blogContainer');
+            container.innerHTML = ""; // Clear any existing content
+
+            blogPosts.forEach(post => {
+                const article = document.createElement('article');
+                article.classList.add('blog-post');
+
+                article.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.description}</p>
+                    <a href="${post.link}" class="read-more">Read More</a>
+                `;
+                container.appendChild(article);
+            });
+        }
+
+        // Load blogs on page load
+        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+    </script>
+
+</body>
+</html>

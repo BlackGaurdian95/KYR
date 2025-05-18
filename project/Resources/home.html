@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Rights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0d0d2b;
+            color: white;
+            text-align: center;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #8b00ff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .btn-dark {
+            background: #333;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        /* Dynamic Section */
+        .dynamic-section {
+            padding: 50px;
+            background: #1a1a3d;
+        }
+
+        .dynamic-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        #dynamic-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.8);
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">KNYR</div>
+        </nav>
+        <div class="buttons">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            ☰
+        </div>
+    </header>
+
+
+    <!-- Dynamic Section -->
+    <section class="dynamic-section">
+        <h2>Did You Know?</h2>
+        <p id="dynamic-text">Your rights change depending on the situation. Learn more below!</p>
+        <button onclick="changeFact()" class="btn">New Fact</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Know Your Rights. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Dynamic "Did You Know?" Facts
+        const facts = [
+            "You have the right to remain silent when questioned by police.",
+            "Employers cannot discriminate against you based on race, gender, or religion.",
+            "You can refuse searches if the police don’t have a warrant.",
+            "Freedom of speech is protected, but it has some legal limits.",
+            "If arrested, you have the right to a lawyer and a fair trial."
+        ];
+
+        function changeFact() {
+            let factIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById("dynamic-text").innerText = facts[factIndex];
+        }
+    </script>
+
+</body>
+</html>
